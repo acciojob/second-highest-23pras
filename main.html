@@ -8,10 +8,22 @@
 
 <body>	
 	<script>
-		function secondHighest(arr) {
-			//Write your code here
-			
-		}
+function secondHighest(arr) {
+  if (arr.length < 2) return -Infinity; // Not enough elements
+
+  let max = -Infinity, secondMax = -Infinity;
+
+  for (let num of arr) {
+    if (num > max) {
+      secondMax = max;
+      max = num;
+    } else if (num > secondMax && num < max) {
+      secondMax = num;
+    }
+  }
+
+  return secondMax === -Infinity ? -Infinity : secondMax;
+}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
@@ -21,6 +33,7 @@
 			}
 			alert(secondHighest(arr));
 		}
+	
 		Main();
 	</script>
 
